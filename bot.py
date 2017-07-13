@@ -1,10 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-This is base of ASMagicBot
-
-
-Bot Wrtied By @jan123 In @magicnews
-Special tnx to all cli bot writers for ideas:)
 """
 import sys,redis,os,re,json,requests
 from time import time as tt
@@ -50,7 +45,7 @@ f = Holder()
 
 def check_cmds(bot,m,l) :
     # Commands
-    if CheckCmd(m,"^magic$") :
+    if CheckCmd(m,"^iblue$") :
         bot.reply_to(m,"*I am online my dear:)*",parse_mode="Markdown")
     elif h.set(CheckCmd(m,"^echo (.+)")) :
         bot.reply_to(m,h.get().group(1))
@@ -708,9 +703,9 @@ def langkb() :
 def ln(l,s,arg = None) :
     if s == 'started' :
         if l == 'en' :
-            return '💫 *Welcome to "Magic Anti Spam Bot" :)*\n⚜️ _Bot Created  in _ [MagicTeam](https://telegram.me/magicnews)_ with ❤️ by @jan123\nChoose One:_'
+            return '💫 *Welcome to "iblue Anti Spam Bot" :)*\n⚜️ _Bot Created by @iborn\nChoose One:_'
         else :
-            return '💫 به ربات "آنتی اسپم مجیک " خوش امدید :)\n⚜️ ساخته شده در  [MagicTeam](https://telegram.me/magicnews) با ❤️ توسط @jan123\nیکی را انتخاب کنید: '
+            return '⚜️ ساخته شده در   @iborn\nیکی را انتخاب کنید: '
     if s == 'newsubset' :
         if l == 'en' :
             return '🚀 User \n'+inf(arg['user'])+'\nJoined to robot as your subset.'
@@ -790,7 +785,7 @@ def ln(l,s,arg = None) :
     🔸Warn Action => _"""+(warnaction or 'kick')+"""_
     🔸Welcome Status: _"""+(wlc or 'Disable')+"""_
          -----------------------
-Channel:@MagicNews"""
+"""
         return settings
     elif s == 'chatinfot' :
         if l == 'en' :
@@ -1043,7 +1038,7 @@ Channel:@MagicNews"""
             else :
                 arg['alladmin'] = "No"
             typ = "Supergroup" if arg["type"] == "supergroup" else "Group"
-            ttt = "<b>Type</b> : <i>"+typ+"</i>\n<b>Title</b> : <i>"+arg['title'][:40].replace("<","&lt;").replace(">","&gt;").replace("&","&amp;")+"</i>\n<b>Id</b> : <i>"+str(arg['id'])+"</i>\n<b>Creator </b> : <i>"+inf(arg["creator"])+"</i>\n<b>Magic role</b> : <i>"+arg["bs"]+"</i>\n<b>Members Count</b> : <i>"+str(arg['mc'])+"</i>\n<b>Admins count</b> : <i>"+str(arg['ac'])+"</i>"+(("\n<b>Any one is admin?</b> <i>"+arg['alladmin']+"</i>")  if arg["type"] == "Group" else "")+"\n\n<b>Message stats</b> : \n"
+            ttt = "<b>Type</b> : <i>"+typ+"</i>\n<b>Title</b> : <i>"+arg['title'][:40].replace("<","&lt;").replace(">","&gt;").replace("&","&amp;")+"</i>\n<b>Id</b> : <i>"+str(arg['id'])+"</i>\n<b>Creator </b> : <i>"+inf(arg["creator"])+"</i>\n<b>iblue role</b> : <i>"+arg["bs"]+"</i>\n<b>Members Count</b> : <i>"+str(arg['mc'])+"</i>\n<b>Admins count</b> : <i>"+str(arg['ac'])+"</i>"+(("\n<b>Any one is admin?</b> <i>"+arg['alladmin']+"</i>")  if arg["type"] == "Group" else "")+"\n\n<b>Message stats</b> : \n"
             for i,v in arg["stats"].iteritems() : 
                 ttt += "<i>"+i + "</i> : <b>"+str(v)+"</b>\n"
             return ttt
@@ -1467,7 +1462,7 @@ def check_text(m) :
             bot.delete_message(m.chat.id,m.message_id)
             return False
     return True
-print("Tele Magic Bot Started:)")
+print("Bot Started:)")
 @bot.message_handler(func=lambda m: if_pv(m))
 def pv_all(m) :
     def pv_all_multi() :
@@ -1631,7 +1626,7 @@ def group_all(m):
             if m.content_type == 'new_chat_member' :
                 if m.new_chat_member.id == boti.id :
                     if is_admin(m.from_user.id) or int(gg(m.chat.id,"inviter") or 0) == m.from_user.id :
-                        bot.reply_to(m,"<b>Hi wlc to my self!</b>\n<code>I am magic api bot please set me admin to help you for managing your group!</code>\n<b>** Without admin access I am just a fun bot:)</b>",parse_mode="Html")
+                        bot.reply_to(m,"<b>Hi wlc to my self!</b>\n<code>I am iblue api bot please set me admin to help you for managing your group!</code>\n<b>** Without admin access I am just a fun bot:)</b>",parse_mode="Html")
                         db.sadd("bot:groups",m.chat.id)
                         gs(m.chat.id,"inviter",m.from_user.id)
                         return
